@@ -1,0 +1,72 @@
+name: LiSCa_Net
+stage: 2
+transform_hsi: True
+
+training:
+  init_lr: 0.001
+  loss: 1*Loss_Res+1*Loss_Cons
+  max_epoch: 500
+  checkpoint_dir: ./checkpoints/
+
+  dl:
+    batch_num: 3
+    shuffle: True
+    num_workers: 0
+    pin_memory: True
+
+  opt:
+    type: Adam
+    Adam:
+      betas: [ 0.9, 0.999 ]
+    SGD:
+      momentum: 0.9
+      weight_decay: 0.0001
+    AdamW:
+      betas: [ 0.9, 0.999 ]
+      weight_decay: 0.0001
+
+  scheduler:
+    enable: False
+    type: step #step, linear
+    step:
+      step_size: 5
+      gamma: 0.8
+    linear:
+      step_size: 20
+      gamma: 0.1
+
+validation:
+  val: False
+  dl:
+    num_workers: 0
+    pin_memory: True
+    batch_size: 80
+
+  start_epoch: 1
+  interval_epoch: 20
+
+testing:
+  dl:
+    num_workers: 0
+    pin_memory: True
+    batch_size: 80
+
+  ckpt_epoch: -1
+  pretrained:
+
+model:
+  type: N2N_2D
+
+  N2N_2D:
+    nch_in: 1
+    nch_out: 1
+    nch_ker: 24
+
+checkpoint:
+  save: True
+  start_epoch: 40
+  interval_epoch: 50
+
+log:
+  interval_iter: 80
+  interval_epoch: 20

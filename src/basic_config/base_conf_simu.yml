@@ -1,0 +1,121 @@
+methods: LiSCa_Net
+device: cuda
+gpu_ids: 0
+manual_seed: 1004
+write_log: False
+
+# dataset settings
+datasets:
+  scene_name: pavia #WashingtonDC, pavia
+  HSI_dir: ./Datasets/
+
+
+noise:
+  case: case2
+
+  case1:
+    noise_type: non_iid_gaussian
+    WashingtonDC:
+      int_rng: [ 0.2, 0.3 ]
+    pavia:
+      int_rng: [ 0.1, 0.2 ]
+
+  case2:
+    noise_type: non_iid_gaussian + stripe
+    WashingtonDC:
+      int_rng: [ 0.2, 0.3 ]
+      stripe:
+        bd_ratio: 0.7
+        stripe_type: vertical # diagonal
+        vertical_ratio_rng: [ 0.1, 0.2 ]
+        diagonal_num_rng: [ 10, 15 ]
+        stripe_int: 0.5
+    pavia:
+      int_rng: [ 0.1, 0.2 ]
+      stripe:
+        bd_ratio: 0.3
+        stripe_type: diagonal # diagonal, vertical
+        vertical_ratio_rng: [ 0.05, 0.15 ]
+        diagonal_num_rng: [ 10, 15 ]
+        stripe_int: 0.7
+
+  case3:
+    noise_type: non_iid_gaussian + deadline
+    WashingtonDC:
+      int_rng: [ 0.2, 0.3 ]
+      deadline:
+        bd_ratio: 0.3
+        deadline_type: vertical
+        vertical_ratio_rng: [ 0.1, 0.2 ]
+        diagonal_num_rng: [ 6, 8 ]
+        wider_deadline_width: 16
+    pavia:
+      int_rng: [ 0.1, 0.2 ]
+      deadline:
+        bd_ratio: 0.3
+        deadline_type: diagonal
+        vertical_ratio_rng: [ 0.05, 0.15 ]
+        diagonal_num_rng: [ 6, 8 ]
+        wider_deadline_width: 8
+
+  case4:
+    noise_type: non_iid_gaussian + impulse
+    WashingtonDC:
+      int_rng: [ 0.2, 0.3 ]
+      impulse:
+        bd_ratio: 0.5
+        amounts: [ 0.1, 0.15, 0.2, 0.25, 0.3 ]
+        s_vs_p: 0.5
+    pavia:
+      int_rng: [ 0.1, 0.2 ]
+      impulse:
+        bd_ratio: 0.7
+        amounts: [ 0.05, 0.06, 0.07, 0.08, 0.09, 0.1 ]
+        s_vs_p: 0.5
+
+  case5:
+    noise_type: non_iid_gaussian + stripe + deadline + impulse
+    WashingtonDC:
+      int_rng: [ 0.2, 0.3 ]
+      stripe:
+        bd_ratio: 0.7
+        stripe_type: vertical # diagonal
+        vertical_ratio_rng: [ 0.1, 0.2 ]
+        diagonal_num_rng: [ 10, 15 ]
+        stripe_int: 0.5
+      deadline:
+        bd_ratio: 0.3
+        deadline_type: vertical
+        vertical_ratio_rng: [ 0.1, 0.2 ]
+        diagonal_num_rng: [ 6, 8 ]
+        wider_deadline_width: 16
+      impulse:
+        bd_ratio: 0.5
+        amounts: [ 0.1, 0.15, 0.2, 0.25, 0.3 ]
+        s_vs_p: 0.5
+    pavia:
+      int_rng: [ 0.1, 0.2 ]
+      stripe:
+        bd_ratio: 0.3
+        stripe_type: diagonal # diagonal, vertical
+        vertical_ratio_rng: [ 0.05, 0.15 ]
+        diagonal_num_rng: [ 10, 15 ]
+        stripe_int: 0.7
+      deadline:
+        bd_ratio: 0.3
+        deadline_type: diagonal
+        vertical_ratio_rng: [ 0.05, 0.15 ]
+        diagonal_num_rng: [ 6, 8 ]
+        wider_deadline_width: 8
+      impulse:
+        bd_ratio: 0.7
+        amounts: [ 0.05, 0.06, 0.07, 0.08, 0.09, 0.1 ]
+        s_vs_p: 0.5
+
+
+# save and show
+save_dir: ./Result/
+save_result: True
+save_denoised_hsi: True
+
+
