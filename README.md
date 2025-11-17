@@ -29,10 +29,14 @@ python run_exps_simu.py
 ```
 
 
-## Bibtex
-XXXXXX
+## Citation
+If you find the code helpful in your resarch or work, please cite:
+```
+XXXXXXXXXXXXX
+```
 
 ## Contact Information
+Please contact me if there is any question. 
 Tongtong Wang: [1822116421@qq.com](1822116421@qq.com)
 
 Aerospace Information Research Institute
