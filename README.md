@@ -4,10 +4,11 @@
 
 ***
 **Abstract:**
-To overcome the insufficient exploitation of spectral discriminability, parameter redundancy, and limited generalization of prevailing ``spatial-priority'' zero-shot hyperspectral image (HSI) mixed-noise removal schemes, this paper proposes a Lightweight Self-Supervised Spectral-Spatial Cascade Network (LiSCa-Net). 
-It constructs a two-stage architecture of ``spectral purification-spatial refinement'': stage I suppresses non-Gaussian sparse noise via a pixel-wise 1-D blind-spot network that exclusively leverages spectral correlation; stage II equalizes band-wise variance through a noise-whitening transform and removes residual Gaussian noise with a 2-D Noise2Noise module. 
+To overcome the insufficient exploitation of spectral discriminability, parameter redundancy, and limited generalization of prevailing "spatial-priority" zero-shot hyperspectral image (HSI) mixed-noise removal schemes, this paper proposes a Lightweight Self-Supervised Spectral-Spatial Cascade Network (LiSCa-Net). 
+It constructs a two-stage architecture of "spectral purification-spatial refinement": stage I suppresses non-Gaussian sparse noise via a pixel-wise 1-D blind-spot network that exclusively leverages spectral correlation; stage II equalizes band-wise variance through a noise-whitening transform and removes residual Gaussian noise with a 2-D Noise2Noise module. 
 Entirely trained on the test image without clean samples or noise priors, the network contains only $26.2k$ parameters and permits on-device deployment. 
 Extensive experiments on simulated and real data show that LiSCa-Net achieves optimal performance in mixed noise scenarios, with excellent texture detail preservation, and has 1-2 orders of magnitude fewer parameters than other methods. 
+Code is available at [https://github.com/wttda/LiSCa-Net](https://github.com/wttda/LiSCa-Net), providing denoising support for resource-constrainted platforms. 
 ***
 ## Flowchart and Network Architecture
 
