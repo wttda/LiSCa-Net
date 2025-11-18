@@ -27,7 +27,7 @@ training:
 
   scheduler:
     enable: False
-    type: step #step, linear
+    type: step
     step:
       step_size: 5
       gamma: 0.8

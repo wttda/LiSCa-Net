@@ -232,11 +232,6 @@ class Base:
             return True
         return (self.epoch - self.val_cfg.start_epoch) % self.val_cfg.interval_epoch == 0
 
-
-
-
-
-
     def load_ckpt(self, name=None):
         file_name = (os.path.join(self.cfg.ckpt_dir, name) if name is not None
                      else os.path.join(self.cfg.ckpt_dir, self._ckpt_name()))

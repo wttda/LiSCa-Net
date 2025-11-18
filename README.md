@@ -25,7 +25,8 @@ Alternatively, you can generate noisy HSIs according to the code.
 ## Denoising Experiments
 ```
 cd LiSCa-Net
-python run_exps_simu.py
+python run_exps_simu.py datasets.scene_name=WashingtonDC noise.case=case3 device=cuda gpu_ids=0 save_dir=./Result/
+python run_exps_simu.py datasets.scene_name=pavia noise.case=case5
 ```
 
 

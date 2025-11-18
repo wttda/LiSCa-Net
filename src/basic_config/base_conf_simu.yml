@@ -9,7 +9,6 @@ datasets:
   scene_name: pavia #WashingtonDC, pavia
   HSI_dir: ./Datasets/
 
-
 noise:
   case: case2
 
@@ -26,7 +25,7 @@ noise:
       int_rng: [ 0.2, 0.3 ]
       stripe:
         bd_ratio: 0.7
-        stripe_type: vertical # diagonal
+        stripe_type: vertical
         vertical_ratio_rng: [ 0.1, 0.2 ]
         diagonal_num_rng: [ 10, 15 ]
         stripe_int: 0.5
@@ -34,7 +33,7 @@ noise:
       int_rng: [ 0.1, 0.2 ]
       stripe:
         bd_ratio: 0.3
-        stripe_type: diagonal # diagonal, vertical
+        stripe_type: diagonal
         vertical_ratio_rng: [ 0.05, 0.15 ]
         diagonal_num_rng: [ 10, 15 ]
         stripe_int: 0.7
@@ -79,7 +78,7 @@ noise:
       int_rng: [ 0.2, 0.3 ]
       stripe:
         bd_ratio: 0.7
-        stripe_type: vertical # diagonal
+        stripe_type: vertical
         vertical_ratio_rng: [ 0.1, 0.2 ]
         diagonal_num_rng: [ 10, 15 ]
         stripe_int: 0.5
@@ -97,7 +96,7 @@ noise:
       int_rng: [ 0.1, 0.2 ]
       stripe:
         bd_ratio: 0.3
-        stripe_type: diagonal # diagonal, vertical
+        stripe_type: diagonal
         vertical_ratio_rng: [ 0.05, 0.15 ]
         diagonal_num_rng: [ 10, 15 ]
         stripe_int: 0.7
@@ -112,8 +111,7 @@ noise:
         amounts: [ 0.05, 0.06, 0.07, 0.08, 0.09, 0.1 ]
         s_vs_p: 0.5
 
-
-# save and show
+# save
 save_dir: ./Result/
 save_result: True
 save_denoised_hsi: True

@@ -1,7 +1,5 @@
-
 import pandas as pd
 from src.utils import *
-
 from src.utils.plot_figs import *
 from src.utils.logger import Logger
 
@@ -51,7 +49,7 @@ class BaseMain:
         mpsnr = metric_dict['MPSNR']
         mssim = metric_dict['MSSIM']
         ergas = metric_dict['ERGAS']
-        self.logger.val(f'Metrics for noisy HSI - MPSNR: {mpsnr:.4f}, MSSIM: {mssim:.4f}, , ERGAS: {ergas:.4f}.')
+        self.logger.val(f'Metrics for noisy HSI - MPSNR: {mpsnr:.4f}, MSSIM: {mssim:.4f}, ERGAS: {ergas:.4f}.')
 
         self.noisy_psnr = mpsnr
         self.noisy_mssim = mssim

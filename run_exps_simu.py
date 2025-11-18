@@ -94,6 +94,8 @@ class MixNoiseRemoval(BaseMain):
 
 
 if __name__ == '__main__':
-    cfg = ConfigSimulated()
+    overrides, rest = parse_dotlist()
+    sys.argv = [sys.argv[0]] + rest
+    cfg = ConfigSimulated(overrides=overrides)
     mixed_noise_removal = MixNoiseRemoval(cfg)
     mixed_noise_removal.main()

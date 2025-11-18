@@ -5,7 +5,6 @@ import numpy as np
 import scipy.io as sio
 
 
-
 def mkdir(dir_path):
     if not os.path.exists(dir_path):
         os.makedirs(dir_path, exist_ok=True)
@@ -46,19 +45,3 @@ def save_mat(mat_path, mat_data):
         sio.savemat(mat_path, mat_data)
     else:
         sio.savemat(mat_path, {'data': mat_data})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

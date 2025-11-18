@@ -3,7 +3,7 @@ import datetime
 
 
 class ProgressMsg:
-    def __init__(self, max_iter, min_time_interval=0.1):
+    def __init__(self, max_iter, min_time_interval=0.5):
         """
         Args:
             max_iter : (max_epoch, max_data_length, ...)

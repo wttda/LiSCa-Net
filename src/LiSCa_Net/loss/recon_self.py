@@ -1,7 +1,6 @@
 import torch
 from . import register_loss
 import torch.nn.functional as F
-operation_seed_counter = 0
 
 
 @register_loss

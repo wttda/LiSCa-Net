@@ -123,8 +123,8 @@ class TrainerStage2(Base):
             hsi = np.pad(hsi, ((0, pad_rows), (0, pad_cols), (0, 0)), mode='reflect')
 
         # Ensure even dimensions
-        row_pad = hsi.shape[0] % 2  # 1 if odd, 0 if even
-        col_pad = hsi.shape[1] % 2  # 1 if odd, 0 if even
+        row_pad = hsi.shape[0] % 2
+        col_pad = hsi.shape[1] % 2
         if row_pad or col_pad:
             hsi = np.pad(hsi, ((0, row_pad), (0, col_pad), (0, 0)), mode='reflect')
             pad_rows += row_pad

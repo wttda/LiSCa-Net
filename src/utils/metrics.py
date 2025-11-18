@@ -4,8 +4,6 @@ from scipy.ndimage import gaussian_filter
 from sklearn.metrics import mean_squared_error
 
 
-
-
 def MPSNR(hsi, ref):
     """Calculate the Mean Peak Signal-to-Noise Ratio (MPSNR) between two HSIs.
 
@@ -127,23 +125,3 @@ def ERGAS(hsi, ref, rows, cols):
     ref = ref.reshape(nbd, rows, cols)
     ergas_num = sum(mean_squared_error(ref[i], hsi[i]) / (np.mean(ref[i]) ** 2) for i in range(nbd))
     return 100 * np.sqrt(ergas_num / nbd)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,15 +1,20 @@
+import re
+import sys
 import csv
-import yaml
 from .metrics import *
 from ..utils.util import *
 from easydict import EasyDict
+from omegaconf import OmegaConf
 from .add_noise import NoiseSimulator
 
 
 class ConfigSimulated:
-    def __init__(self, cfg_file='src/basic_config/base_conf_simu.yml'):
-        with open(cfg_file, 'r', encoding='utf-8') as f:
-            self.cfg = EasyDict(yaml.safe_load(f))
+    def __init__(self, cfg_file='src/basic_config/base_conf_simu.yml', overrides=None):
+        cfg = OmegaConf.load(cfg_file)
+        if overrides:
+            override_conf = OmegaConf.from_dotlist(overrides)
+            cfg = OmegaConf.merge(cfg, override_conf)
+        self.cfg = EasyDict(OmegaConf.to_container(cfg, resolve=True))
         self._setup_dirs()
 
     # noinspection PyUnresolvedReferences
@@ -94,7 +99,15 @@ def summary(module: dict, cfg=None):
             writer.writerows(rows)
     return summary_
 
-
+def parse_dotlist():
+    dotlist = []
+    remain = []
+    for arg in sys.argv[1:]:
+        if re.fullmatch(r"[a-zA-Z0-9_.]+\s*=\s*[^=\s]+", arg):
+            dotlist.append(arg)
+        else:
+            remain.append(arg)
+    return dotlist, remain
 
 
 
