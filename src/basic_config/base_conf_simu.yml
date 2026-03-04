@@ -10,16 +10,9 @@ datasets:
   HSI_dir: ./Datasets/
 
 noise:
-  case: case2
+  case: case1
 
   case1:
-    noise_type: non_iid_gaussian
-    WashingtonDC:
-      int_rng: [ 0.2, 0.3 ]
-    pavia:
-      int_rng: [ 0.1, 0.2 ]
-
-  case2:
     noise_type: non_iid_gaussian + stripe
     WashingtonDC:
       int_rng: [ 0.2, 0.3 ]
@@ -38,7 +31,7 @@ noise:
         diagonal_num_rng: [ 10, 15 ]
         stripe_int: 0.7
 
-  case3:
+  case2:
     noise_type: non_iid_gaussian + deadline
     WashingtonDC:
       int_rng: [ 0.2, 0.3 ]
@@ -57,7 +50,7 @@ noise:
         diagonal_num_rng: [ 6, 8 ]
         wider_deadline_width: 8
 
-  case4:
+  case3:
     noise_type: non_iid_gaussian + impulse
     WashingtonDC:
       int_rng: [ 0.2, 0.3 ]
@@ -72,7 +65,7 @@ noise:
         amounts: [ 0.05, 0.06, 0.07, 0.08, 0.09, 0.1 ]
         s_vs_p: 0.5
 
-  case5:
+  case4:
     noise_type: non_iid_gaussian + stripe + deadline + impulse
     WashingtonDC:
       int_rng: [ 0.2, 0.3 ]
